@@ -1,0 +1,8 @@
+{
+  "reviews": [
+    { "name": "Sarah J.", "route": "Texas to Florida", "rating": 5, "avatar": "images/av47.jpg", "text": "GoShip Auto made the whole process so easy! My car was picked up on time and delivered faster than expected. Highly recommend!" },
+    { "name": "Mike R.", "route": "California to New York", "rating": 5, "avatar": "images/av12.jpg", "text": "Excellent communication and great service. The driver was professional and my car arrived in perfect condition." },
+    { "name": "Jessica L.", "route": "Illinois to Arizona", "rating": 5, "avatar": "images/av32.jpg", "text": "Best auto transport company I've ever used. No hidden fees and everything was just like they promised." },
+    { "name": "David K.", "route": "Michigan to Georgia", "rating": 4, "avatar": "images/av51.jpg", "text": "Very reliable and trustworthy. They handled my classic car with so much care. Will use again!" }
+  ]
+}

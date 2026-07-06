@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Customer Reviews | GoShip Auto</title>
+<meta name="description" content="Read verified reviews from customers who shipped their vehicles nationwide with GoShip Auto." />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root{
+    --navy:#081a2c; --hero:#0a0e1a; --red:#e11d2e; --red-dark:#c41825; --white:#fff;
+    --slate-300:#cbd5e1; --slate-400:#94a3b8; --slate-500:#64748b; --slate-600:#475569;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#0f172a;background:var(--navy)}
+  a{text-decoration:none;color:inherit}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+  .sec{padding:64px 0}
+  @media(min-width:1024px){.sec{padding:96px 0}}
+
+  /* ===== TOP BAR ===== */
+  .topbar{background:var(--navy);color:#fff}
+  .topbar .row{display:flex;flex-direction:column;gap:12px;padding:16px 0}
+  @media(min-width:640px){.topbar .row{flex-direction:row;align-items:center;justify-content:space-between}}
+  .tb-left{display:flex;flex-direction:column;gap:8px;font-size:14px}
+  @media(min-width:640px){.tb-left{flex-direction:row;align-items:center}}
+  .brand-mini{font-size:28px;font-weight:800;margin-right:24px}
+  .brand-mini .go{color:var(--red)} .brand-mini .ship{color:#fff}
+  .tb-left a{display:flex;align-items:center;gap:8px}
+  .tb-left a i{color:var(--red)}
+  .tb-left .sep{margin-left:24px}
+  .tb-nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px}
+  .tb-nav a{border:1px solid rgba(255,255,255,.2);padding:5px 12px;border-radius:999px;transition:.2s}
+  .tb-nav a:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+  .tb-nav a.cta{background:#fff;color:var(--navy);font-weight:600;border:none}
+  .tb-nav a.cta:hover{background:#f1f5f9}
+
+  /* ===== MAIN HEADER ===== */
+  .mhead{position:relative;overflow:hidden;background:#fff}
+  .mhead .shape{position:absolute;inset:0 0 0 auto;width:62%;background:var(--navy);clip-path:polygon(18% 0,100% 0,100% 100%,0% 100%);display:none}
+  @media(min-width:768px){.mhead .shape{display:block}}
+  .mhead .row{position:relative;display:flex;height:96px;align-items:center;justify-content:space-between}
+  .mhead .logo img{height:76px;width:auto}
+  .btn-red{background:var(--red);color:#fff;font-weight:600;padding:12px 22px;border-radius:8px;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+  .btn-red:hover{background:var(--red-dark)}
+
+  /* ===== HERO BANNER ===== */
+  .hero{background:var(--hero);overflow:hidden}
+  .hero .grid{display:grid;gap:40px;padding:64px 0;align-items:center}
+  @media(min-width:768px){.hero .grid{grid-template-columns:1fr 1fr;padding:80px 0}}
+  .hero h1{font-size:44px;line-height:1.05;font-weight:800;color:#fff}
+  @media(min-width:768px){.hero h1{font-size:52px}}
+  .hero p.sub{margin-top:16px;font-size:18px;color:var(--slate-300)}
+  .hero ul{list-style:none;margin-top:32px;display:flex;flex-direction:column;gap:16px}
+  .hero li{display:flex;align-items:flex-start;gap:12px;color:#f1f5f9}
+  .hero li i{color:var(--red);margin-top:3px}
+  .hero .imgwrap{position:relative;min-height:380px;display:none}
+  @media(min-width:768px){.hero .imgwrap{display:block}}
+  .hero .imgwrap .l1,.hero .imgwrap .l2,.hero .imgwrap .l3{position:absolute;inset:0;border-radius:16px;overflow:hidden}
+  .hero .imgwrap .l1{background:var(--navy);clip-path:polygon(10% 0,100% 0,100% 100%,4% 100%)}
+  .hero .imgwrap .l2{background:var(--red);clip-path:polygon(14% 0,100% 0,100% 100%,8% 100%)}
+  .hero .imgwrap .l3{clip-path:polygon(18% 0,100% 0,100% 100%,12% 100%)}
+  .hero .imgwrap .l3 img{height:100%;width:100%;object-fit:cover}
+
+  /* ===== SECTION HEADINGS ===== */
+  .head{text-align:center}
+  .head h2{font-size:32px;font-weight:800;color:#fff}
+  @media(min-width:640px){.head h2{font-size:38px}}
+  .head h2.dark{color:var(--navy)}
+  .head .accent{color:var(--red)}
+  .head p{margin:16px auto 0;max-width:620px;font-size:16px;color:var(--slate-300)}
+  .head p.dark{color:var(--slate-600)}
+
+  /* ===== WHY CHOOSE / GRID CARDS ===== */
+  .why{background:var(--navy)}
+  .cards5{display:grid;gap:24px;margin-top:48px;grid-template-columns:1fr}
+  @media(min-width:640px){.cards5{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.cards5{grid-template-columns:repeat(5,1fr)}}
+  .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:.3s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(0,0,0,.35)}
+  .card .thumb{position:relative;height:128px;overflow:hidden}
+  .card .thumb img{height:100%;width:100%;object-fit:cover;transition:.5s}
+  .card:hover .thumb img{transform:scale(1.1)}
+  .badge{position:absolute;left:12px;top:12px;background:#10b981;color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:4px}
+  .card .body{padding:20px;flex:1;display:flex;flex-direction:column}
+  .card .ico{width:44px;height:44px;margin:-38px 0 12px;border-radius:12px;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.12);position:relative}
+  .card h3{font-size:16px;font-weight:800;color:var(--navy)}
+  .card p{margin-top:8px;font-size:14px;line-height:1.55;color:var(--slate-600)}
+
+  /* ===== ROUTE MAP ===== */
+  .map{background:var(--navy)}
+  .map .grid{display:grid;gap:40px;margin-top:48px;align-items:center}
+  @media(min-width:1024px){.map .grid{grid-template-columns:.9fr 1.4fr}}
+  .map .mapbox{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:24px;max-width:440px;margin:0 auto}
+  .map .mapbox img{width:100%;filter:invert(45%) sepia(90%) saturate(300%) hue-rotate(180deg) brightness(110%)}
+  .selstate{display:flex;align-items:center;gap:8px;justify-content:center;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+  @media(min-width:1024px){.selstate{justify-content:flex-start}}
+  .selstate i{color:var(--red)}
+  .stategrid{display:grid;grid-template-columns:1fr 1fr;gap:2px 24px}
+  @media(min-width:640px){.stategrid{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:1280px){.stategrid{grid-template-columns:repeat(4,1fr)}}
+  .stategrid a{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.1);padding:8px 0;font-size:14px;color:var(--slate-300);transition:.2s}
+  .stategrid a:hover{color:#fff}
+  .stategrid a i{color:var(--red);font-size:12px}
+  .btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);font-weight:600;padding:12px 28px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:.2s;margin-top:28px}
+  .btn-white:hover{transform:translateY(-2px);background:#f1f5f9}
+  .btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.4);color:#fff;font-weight:600;padding:10px 24px;border-radius:999px;transition:.2s}
+  .btn-outline:hover{background:#fff;color:var(--navy)}
+
+  /* ===== SERVICES ===== */
+  .serv{background:var(--navy)}
+  .serv .top{display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+  @media(min-width:640px){.serv .top{flex-direction:row;justify-content:space-between;text-align:left}}
+  .serv .top h2{font-size:32px;font-weight:800;color:#fff}
+  @media(min-width:640px){.serv .top h2{font-size:38px}}
+  .scroller{display:flex;gap:20px;overflow-x:auto;padding:40px 0 12px;scrollbar-width:none}
+  .scroller::-webkit-scrollbar{display:none}
+  .scard{flex:0 0 230px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(8,26,44,.12);transition:.3s;display:flex;flex-direction:column}
+  .scard:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(8,26,44,.22)}
+  .scard .thumb{height:128px;overflow:hidden}
+  .scard .thumb img{height:100%;width:100%;object-fit:cover;transition:.5s}
+  .scard:hover .thumb img{transform:scale(1.1)}
+  .scard .body{padding:20px;flex:1;display:flex;flex-direction:column}
+  .scard .ico{width:44px;height:44px;margin:-40px 0 12px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+  .scard h3{font-size:14px;font-weight:800;color:var(--navy)}
+  .scard p{margin-top:6px;flex:1;font-size:12px;line-height:1.5;color:var(--slate-600)}
+  .scard .more{margin-top:12px;font-size:12px;font-weight:700;color:var(--red);display:inline-flex;align-items:center;gap:4px}
+
+  /* ===== HOW IT WORKS ===== */
+  .hiw{background:var(--navy)}
+  .steps{position:relative;display:grid;gap:40px;margin-top:56px;grid-template-columns:1fr}
+  @media(min-width:640px){.steps{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .steps .line{display:none;position:absolute;left:12.5%;right:12.5%;top:40px;border-top:2px dashed rgba(255,255,255,.2)}
+  @media(min-width:1024px){.steps .line{display:block}}
+  .step{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .step .circle{position:relative;width:80px;height:80px;border-radius:999px;background:#fff;color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+  .step .num{position:absolute;top:-4px;right:-4px;width:28px;height:28px;border-radius:999px;background:var(--red);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;border:4px solid var(--navy)}
+  .step h3{margin-top:24px;font-size:18px;font-weight:800;color:#fff}
+  .step p{margin-top:8px;max-width:240px;font-size:14px;line-height:1.55;color:var(--slate-300)}
+
+  /* ===== TRUST ===== */
+  .trust{background:var(--navy)}
+  .stats{display:grid;gap:24px;margin-top:48px;grid-template-columns:1fr}
+  @media(min-width:640px){.stats{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:16px;padding:28px;transition:.3s}
+  .stat:hover{transform:translateY(-6px);border-color:rgba(225,29,46,.4);background:rgba(255,255,255,.1)}
+  .stat .ico{width:48px;height:48px;border-radius:12px;background:rgba(225,29,46,.15);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:22px}
+  .stat .val{margin-top:20px;font-size:30px;font-weight:800;color:var(--red)}
+  .stat .lab{margin-top:4px;font-size:16px;font-weight:700;color:#fff}
+  .stat .desc{margin-top:8px;font-size:14px;line-height:1.5;color:var(--slate-400)}
+
+  /* ===== REVIEWS ===== */
+  .rev{background:var(--navy)}
+  .rev .top{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:16px}
+  @media(min-width:640px){.rev .top{flex-direction:row}}
+  .rev .top h2{font-size:26px;font-weight:800;color:#fff}
+  @media(min-width:640px){.rev .top h2{font-size:30px}}
+  .revgrid{display:grid;gap:24px;margin-top:40px;grid-template-columns:1fr}
+  @media(min-width:640px){.revgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.revgrid{grid-template-columns:repeat(4,1fr)}}
+  .rcard{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:16px;padding:24px;display:flex;flex-direction:column;transition:.3s}
+  .rcard:hover{transform:translateY(-4px);border-color:rgba(225,29,46,.4)}
+  .stars{display:flex;gap:2px;color:#fbbf24}
+  .stars .off{color:rgba(255,255,255,.15)}
+  .rcard .txt{margin-top:16px;flex:1;font-size:14px;line-height:1.55;color:var(--slate-300)}
+  .rcard .who{margin-top:24px;display:flex;align-items:center;gap:12px;border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
+  .rcard .who img{width:40px;height:40px;border-radius:999px;object-fit:cover;box-shadow:0 0 0 2px rgba(225,29,46,.4)}
+  .rcard .who .n{font-size:14px;font-weight:600;color:#fff}
+  .rcard .who .l{font-size:12px;color:var(--slate-400)}
+
+  /* ===== FAQ ===== */
+  .faq{background:var(--navy)}
+  .faqgrid{display:grid;gap:16px;margin-top:40px;grid-template-columns:1fr}
+  @media(min-width:768px){.faqgrid{grid-template-columns:1fr 1fr}}
+  details{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:12px;overflow:hidden}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;font-size:15px;font-weight:500;color:#fff}
+  summary::-webkit-details-marker{display:none}
+  summary .pm{width:28px;height:28px;flex:none;border-radius:999px;background:rgba(225,29,46,.15);color:var(--red);display:flex;align-items:center;justify-content:center}
+  details[open] summary .pm .plus{display:none}
+  details:not([open]) summary .pm .minus{display:none}
+  details .ans{padding:0 24px 20px;font-size:14px;line-height:1.6;color:var(--slate-300)}
+  .faq .more{margin-top:40px;text-align:center;font-size:14px;color:var(--slate-300)}
+  .faq .more a{color:var(--red);font-weight:600}
+
+  /* ===== CTA ===== */
+  .cta{position:relative;overflow:hidden;padding:80px 0}
+  @media(min-width:1024px){.cta{padding:112px 0}}
+  .cta .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cta .ov{position:absolute;inset:0;background:linear-gradient(90deg,var(--navy),rgba(8,26,44,.9) 55%,rgba(8,26,44,.6))}
+  .cta .inner{position:relative;text-align:center}
+  .cta h2{font-size:34px;font-weight:800;color:#fff}
+  @media(min-width:1024px){.cta h2{font-size:48px}}
+  .cta p{margin:16px auto 0;max-width:520px;color:#e2e8f0}
+  .cta .btns{margin-top:32px;display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center}
+  @media(min-width:640px){.cta .btns{flex-direction:row}}
+  .btn-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:600;padding:16px 32px;border-radius:999px;box-shadow:0 15px 35px rgba(225,29,46,.4);transition:.2s}
+  .btn-cta:hover{transform:translateY(-2px);background:var(--red-dark)}
+  .btn-cta2{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.4);color:#fff;font-weight:600;padding:16px 32px;border-radius:999px;transition:.2s}
+  .btn-cta2:hover{background:#fff;color:var(--navy)}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--navy);color:var(--slate-300)}
+  .fgrid{display:grid;gap:40px;padding:64px 0;grid-template-columns:1fr}
+  @media(min-width:768px){.fgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.fgrid{grid-template-columns:repeat(5,1fr)}}
+  .fbrand .name{font-size:24px;font-weight:800;color:#fff}
+  .fbrand .name .go{color:var(--red)}
+  .fbrand .auto{font-size:10px;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--slate-400)}
+  .fbrand p{margin-top:16px;font-size:14px;line-height:1.6;color:var(--slate-400)}
+  .fsocials{margin-top:20px;display:flex;gap:12px}
+  .fsocials a{width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:var(--slate-300);transition:.2s}
+  .fsocials a:hover{border-color:var(--red);background:var(--red);color:#fff}
+  footer h3{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff}
+  footer ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:10px;font-size:14px}
+  footer ul a:hover{color:var(--red)}
+  .fcontact li{display:flex;align-items:flex-start;gap:12px;margin-top:16px;font-size:14px}
+  .fcontact li i{color:var(--red);margin-top:3px}
+  .fbottom{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;display:flex;flex-direction:column;gap:12px;font-size:12px;color:var(--slate-400)}
+  @media(min-width:768px){.fbottom{flex-direction:row;align-items:center;justify-content:space-between}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="topbar">
+  <div class="wrap row">
+    <div class="tb-left">
+      <span class="brand-mini"><span class="go">Go</span><span class="ship">Ship</span></span>
+      <a href="tel:+18001234567"><i class="fa-solid fa-phone"></i>+1 (800) 123-4567</a>
+      <a href="mailto:info@goshipauto.com" class="sep"><i class="fa-solid fa-envelope"></i>info@goshipauto.com</a>
+    </div>
+    <nav class="tb-nav">
+      <a href="blog.html" class="cta">Blog</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About us</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ===== MAIN HEADER ===== -->
+<div class="mhead">
+  <div class="shape"></div>
+  <div class="wrap row">
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="GoShip Auto" /></a>
+    <a href="contact.html#quote" class="btn-red">Get a quote</a>
+  </div>
+</div>
+</header>
+
+<section class="rev sec">
+  <div class="wrap">
+    <div class="top"><h2>What Our Customers Say on <span style="color:var(--red)">Google</span></h2></div>
+    <div class="revgrid" id="reviews-full"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="name">Go<span class="go">Ship</span></div>
+        <div class="auto">Auto</div>
+        <p>GoShip Auto is a trusted auto transport company providing safe, reliable, and affordable vehicle shipping across the United States.</p>
+        <div class="fsocials">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://google.com" target="_blank" rel="noreferrer"><i class="fa-brands fa-google"></i></a>
+          <a href="https://x.com" target="_blank" rel="noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li><li><a href="reviews.html">Our Reviews</a></li><li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li><li><a href="help.html">Help Center</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="services.html#open-auto-transport">Open Auto Transport</a></li><li><a href="services.html#enclosed-transport">Enclosed Transport</a></li>
+          <li><a href="services.html#expedited-shipping">Expedited Shipping</a></li><li><a href="services.html#door-to-door">Door-to-Door Service</a></li>
+          <li><a href="services.html#military">Military Auto Transport</a></li><li><a href="services.html#motorcycle">Motorcycle Shipping</a></li>
+          <li><a href="services.html#classic-car">Classic Car Shipping</a></li><li><a href="services.html#heavy-equipment">Heavy Equipment Transport</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Popular States</h3>
+        <ul>
+          <li><a href="contact.html#quote">California Auto Transport</a></li><li><a href="contact.html#quote">Texas Auto Transport</a></li>
+          <li><a href="contact.html#quote">Florida Auto Transport</a></li><li><a href="contact.html#quote">New York Auto Transport</a></li>
+          <li><a href="contact.html#quote">Illinois Auto Transport</a></li><li><a href="contact.html#quote">Georgia Auto Transport</a></li>
+          <li><a href="contact.html#quote">North Carolina Auto Transport</a></li><li><a href="services.html#coverage">All States</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <ul class="fcontact">
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+18001234567">+1 (800) 123-4567</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@goshipauto.com">info@goshipauto.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span>123 Transport Way, Phoenix, AZ 85001, USA</span></li>
+          <li><i class="fa-solid fa-clock"></i><span>Mon - Fri 8AM - 8PM EST<br>Sat - Sun 9AM - 6PM EST</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbottom">
+      <p>© 2026 GoShip Auto. All rights reserved.</p>
+      <p>USDOT: 1234567 &nbsp;|&nbsp; MC: 1234567 &nbsp;|&nbsp; DOT: 123456</p>
+    </div>
+  </div>
+</footer>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a4abb8fadd6c21d4830b776/1jspupakv';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
+<script src="js/site-data.js"></script>
+</body>
+</html>

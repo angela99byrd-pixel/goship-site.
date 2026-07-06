@@ -1,0 +1,11 @@
+{
+  "index.html": { "title": "GoShip Auto | Premium Nationwide Vehicle Shipping", "description": "GoShip Auto ships vehicles nationwide with licensed, insured carriers. Open & enclosed transport, door-to-door service, and transparent pricing." },
+  "about.html": { "title": "About Us | GoShip Auto", "description": "Learn about GoShip Auto, a trusted nationwide auto transport company built on licensed carriers, transparent pricing, and real customer support." },
+  "services.html": { "title": "Auto Transport Services | GoShip Auto", "description": "Explore GoShip Auto's full range of vehicle shipping services: open, enclosed, expedited, door-to-door, military, motorcycle, classic car, and heavy equipment transport." },
+  "reviews.html": { "title": "Customer Reviews | GoShip Auto", "description": "Read verified reviews from customers who shipped their vehicles nationwide with GoShip Auto." },
+  "blog.html": { "title": "Blog | GoShip Auto", "description": "Tips and guides on auto transport, shipping costs, and preparing your vehicle for pickup." },
+  "contact.html": { "title": "Contact Us & Get a Quote | GoShip Auto", "description": "Get a free auto transport quote or contact the GoShip Auto team by phone or email." },
+  "help.html": { "title": "Help Center | GoShip Auto", "description": "Answers to common questions about booking, pricing, insurance, and vehicle shipping with GoShip Auto." },
+  "privacy-policy.html": { "title": "Privacy Policy | GoShip Auto", "description": "GoShip Auto's privacy policy explaining how we collect, use, and protect your information." },
+  "terms.html": { "title": "Terms & Conditions | GoShip Auto", "description": "Terms and conditions for using GoShip Auto's website and auto transport services." }
+}

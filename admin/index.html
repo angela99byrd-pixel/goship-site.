@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager & Live Chat - GoShip Auto</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+    const ChatLink = createClass({
+      render: function() {
+        return h('div', {style: {padding: '20px', textAlign: 'center'}},
+          h('h1', {}, 'Live Chat Control Panel'),
+          h('p', {}, 'Pentru a vorbi cu clienții în timp real, deschide panoul Tawk.to securizat cu datele tale în fereastră nouă:'),
+          h('a', {
+            href: 'https://dashboard.tawk.to', 
+            target: '_blank', 
+            style: {
+              display: 'inline-block', 
+              padding: '12px 24px', 
+              background: '#e11d2e', 
+              color: '#fff', 
+              textDecoration: 'none', 
+              borderRadius: '8px',
+              fontWeight: 'bold',
+              marginTop: '15px'
+            }
+          }, 'Deschide Chat-ul Live 💬')
+        );
+      }
+    });
+    CMS.registerPreviewTemplate("chat_panel", ChatLink);
+  </script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6a4abb8fadd6c21d4830b776/1jspupakv';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+</body>
+</html>

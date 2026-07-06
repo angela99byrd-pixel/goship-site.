@@ -1,0 +1,10 @@
+{
+  "faq": [
+    { "question": "How much does it cost to ship a car?", "answer": "Costs vary based on distance, vehicle size, transport method, route demand, and timing. A short local move may be much less expensive than a cross-country shipment, and expedited service typically costs more." },
+    { "question": "Do you offer door-to-door service?", "answer": "Yes, our carriers pick up and deliver as close to your requested addresses as safely and legally possible, in most cases directly at your door." },
+    { "question": "How long does auto transport take?", "answer": "Transit times depend on distance, route availability, weather, and carrier schedules. Shorter routes may take a few days, while longer interstate moves can take several days to a week or more." },
+    { "question": "Can I put personal items in my car?", "answer": "Most carriers allow a small amount of personal items in the trunk, generally under 100 lbs, but this is not covered by insurance. Check with your carrier before shipment." },
+    { "question": "Is my vehicle insured during transport?", "answer": "Yes, every carrier in our network carries cargo insurance that covers your vehicle during transport. We can provide proof of insurance upon request." },
+    { "question": "What types of vehicles do you transport?", "answer": "We transport sedans, SUVs, trucks, motorcycles, classic and exotic cars, as well as non-running vehicles and heavy equipment." }
+  ]
+}

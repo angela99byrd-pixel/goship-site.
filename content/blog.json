@@ -1,0 +1,7 @@
+{
+  "posts": [
+    { "slug": "prepare-car-for-shipping", "title": "How to Prepare Your Car for Long-Distance Shipping", "date": "2026-06-02", "excerpt": "A quick checklist to get your vehicle ready before pickup day.", "image": "images/truck-a.jpg", "body": "Before your carrier arrives, wash your car so any existing damage is easy to see, remove personal items, disable toll tags and alarms, and make sure you have less than a quarter tank of fuel. Take timestamped photos from all angles for your own records." },
+    { "slug": "open-vs-enclosed", "title": "Open vs. Enclosed Transport: Which One Do You Need?", "date": "2026-05-21", "excerpt": "Understand the difference in protection, cost, and timing.", "image": "images/truck-b.jpg", "body": "Open transport is the industry standard: affordable and widely available, with your vehicle exposed to weather like it would be on any highway. Enclosed transport trades a higher price for full protection from the elements and is the preferred choice for classic, luxury, and exotic vehicles." },
+    { "slug": "shipping-costs-explained", "title": "Cross-Country Shipping Costs Explained", "date": "2026-05-08", "excerpt": "What actually affects your auto transport quote.", "image": "images/hero-truck.jpg", "body": "Distance, vehicle size and weight, transport type, time of year, fuel prices, and route popularity all affect your quote. Routes between major cities tend to be cheaper per mile than remote, low-traffic routes because carriers can fill trailers more easily." }
+  ]
+}

@@ -1,0 +1,120 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "settings"
+    label: "Contact & Business Info"
+    delete: false
+    files:
+      - name: "general"
+        label: "Phone, Email & Hours"
+        file: "content/settings.json"
+        fields:
+          - { label: "Phone Number (display)", name: "phone", widget: "string" }
+          - { label: "Phone Number (tel: link, digits only, e.g. +18001234567)", name: "phone_tel", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Business Address", name: "address", widget: "string" }
+          - { label: "Weekday Hours", name: "hours_weekday", widget: "string" }
+          - { label: "Weekend Hours", name: "hours_weekend", widget: "string" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string" }
+          - { label: "Google URL", name: "google_url", widget: "string" }
+          - { label: "X (Twitter) URL", name: "x_url", widget: "string" }
+          - { label: "USDOT Number", name: "usdot", widget: "string" }
+          - { label: "MC Number", name: "mc", widget: "string" }
+          - { label: "DOT Number", name: "dot", widget: "string" }
+
+  - name: "services"
+    label: "Services"
+    delete: false
+    files:
+      - name: "list"
+        label: "Services List"
+        file: "content/services.json"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Slug (used in URL, no spaces)", name: "slug", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Icon (Font Awesome class, e.g. fa-truck)", name: "icon", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Short Description", name: "description", widget: "string" }
+              - { label: "Full Details", name: "details", widget: "text" }
+
+  - name: "reviews"
+    label: "Reviews"
+    delete: false
+    files:
+      - name: "list"
+        label: "Reviews List"
+        file: "content/reviews.json"
+        fields:
+          - label: "Reviews"
+            name: "reviews"
+            widget: "list"
+            fields:
+              - { label: "Customer Name", name: "name", widget: "string" }
+              - { label: "Route (e.g. Texas to Florida)", name: "route", widget: "string" }
+              - { label: "Rating (1-5)", name: "rating", widget: "number", min: 1, max: 5 }
+              - { label: "Avatar Image", name: "avatar", widget: "image" }
+              - { label: "Review Text", name: "text", widget: "text" }
+
+  - name: "faq"
+    label: "FAQ"
+    delete: false
+    files:
+      - name: "list"
+        label: "FAQ List"
+        file: "content/faq.json"
+        fields:
+          - label: "Questions"
+            name: "faq"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
+
+  - name: "blog"
+    label: "Blog"
+    delete: false
+    files:
+      - name: "posts"
+        label: "Blog Posts"
+        file: "content/blog.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "date" }
+              - { label: "Excerpt", name: "excerpt", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Body", name: "body", widget: "text" }
+
+  - name: "seo"
+    label: "SEO (Titles & Descriptions)"
+    delete: false
+    files:
+      - name: "pages"
+        label: "Page Titles & Meta Descriptions"
+        file: "content/seo.json"
+        fields:
+          - { label: "Home (index.html)", name: "index.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "About", name: "about.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Services", name: "services.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Reviews", name: "reviews.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Blog", name: "blog.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Contact", name: "contact.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Help", name: "help.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Privacy Policy", name: "privacy-policy.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
+          - { label: "Terms", name: "terms.html", widget: "object", fields: [ { label: "Title", name: "title", widget: "string" }, { label: "Description", name: "description", widget: "text" } ] }
